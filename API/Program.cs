@@ -1,5 +1,6 @@
 using API.Core.Application.Interfaces;
 using API.Persistance.Context;
+using API.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<AppDbContext>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(IRepository<>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddControllers();
 
